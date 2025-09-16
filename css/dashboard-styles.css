@@ -1,0 +1,82 @@
+/* ===== Color Palette ===== */
+:root {
+  --bg-color: #D6EFD8;
+  --accent: #80AF81;
+  --line-text: #508D4E;
+  --heading: #1A5319;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--line-text);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 2px solid var(--line-text);
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--heading);
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-color);
+  font-weight: bold;
+}
+
+/* ===== Welcome Section ===== */
+.welcome {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #c9e4cc, #a7cfa8);
+}
+
+.welcome h2 {
+  color: var(--heading);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  font-size: 1rem;
+}
+
+/* ===== Dashboard Cards ===== */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  flex: 1;
+  min-height: 200px;
+  border-radius: 30px;
+  background: linear-gradient(to bottom, #c2dfc7, #a0c5a5);
+}
