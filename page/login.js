@@ -1,5 +1,5 @@
 
-import { login, forgotPass, register } from "../utils/auth.js";
+import { loginForm, forgotPass, registerForm } from "../utils/auth.js";
 
 export const loginpage = () => {
     document.body.innerHTML = `
@@ -50,13 +50,12 @@ export const loginpage = () => {
 
                 <div class="signup-link">
                     <span>Have no account? </span>
-                    <a id="registerBtn">Sign up here.</a>
+                    <a href="register.html" id="registerBtn">Sign up here.</a>
                 </div>
                 </form>
         </div>
     </div>
     `;
-    document.getElementById('registerBtn').addEventListener('click', register)
     document.getElementById('forgot-btn').addEventListener('click', forgotPass)
     document.getElementById('login').addEventListener('click', (e) => {
     // Get form values
@@ -65,7 +64,7 @@ export const loginpage = () => {
 
     // Check if fields are filled
     if (email && password) {
-        login(email, password);
+        loginForm(email, password);
     } else {
         Swal.fire({
         icon: 'warning',
