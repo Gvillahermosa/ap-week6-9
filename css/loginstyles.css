@@ -137,6 +137,7 @@ input::placeholder {
     text-decoration: none;
     font-size: 14px;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .forgot-password a:hover {
@@ -177,6 +178,7 @@ input::placeholder {
 }
 
 .signup-link a {
+    cursor: pointer;
     color: #1A5319;
     text-decoration: underline;
     font-weight: 500;
@@ -193,11 +195,11 @@ input::placeholder {
     .login-card {
         padding: 30px 25px;
     }
-    
+
     h1 {
         font-size: 28px;
     }
-    
+
     .subtitle {
         font-size: 13px;
     }

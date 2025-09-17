@@ -44,7 +44,29 @@ body {
   justify-content: center;
   color: var(--bg-color);
   font-weight: bold;
+  margin-left: 82%;
 }
+
+.logout-btn {
+    background-color:transparent;
+    border:none;
+    display: flex;
+    align-items: center;
+}
+
+.logout-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.logouticon {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+     filter: brightness(0) saturate(100%) invert(22%) sepia(37%) saturate(2527%) hue-rotate(88deg) brightness(94%) contrast(98%);
+}
+
 
 /* ===== Welcome Section ===== */
 .welcome {
@@ -64,19 +86,4 @@ body {
 
 .welcome p {
   font-size: 1rem;
-}
-
-/* ===== Dashboard Cards ===== */
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.card {
-  flex: 1;
-  min-height: 200px;
-  border-radius: 30px;
-  background: linear-gradient(to bottom, #c2dfc7, #a0c5a5);
 }

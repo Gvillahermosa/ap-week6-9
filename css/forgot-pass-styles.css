@@ -40,6 +40,8 @@ body {
   text-align: left;
   cursor: pointer;
   margin-bottom: 10px;
+  background: transparent;
+  border: none;
 }
 .title-row {
   display: flex;

@@ -1,0 +1,77 @@
+
+import { login, forgotPass, register } from "../utils/auth.js";
+
+export const loginpage = () => {
+    document.body.innerHTML = `
+     <div class="container">
+        <div class="login-card">
+            <div class="icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H15M10 17L15 12L10 7M15 12H3" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h1>Sign in</h1>
+            <p class="subtitle">This is where you sign in to have an account.</p>
+
+<form class="login-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input id="email" type="email" placeholder="Email" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="#666" stroke-width="2"/>
+                            <circle cx="12" cy="16" r="1" fill="#666"/>
+                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="#666" stroke-width="2"/>
+                        </svg>
+                        <input id="password" type="password" placeholder="Password" required>
+                        <button type="button" class="toggle-password">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="#666" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="3" stroke="#666" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="forgot-password">
+                    <a id="forgot-btn">Forgot Password?</a>
+                </div>
+
+                <button id="login" type="button" class="submit-btn">GET STARTED</button>
+
+                <div class="signup-link">
+                    <span>Have no account? </span>
+                    <a id="registerBtn">Sign up here.</a>
+                </div>
+                </form>
+        </div>
+    </div>
+    `;
+    document.getElementById('registerBtn').addEventListener('click', register)
+    document.getElementById('forgot-btn').addEventListener('click', forgotPass)
+    document.getElementById('login').addEventListener('click', (e) => {
+    // Get form values
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Check if fields are filled
+    if (email && password) {
+        login(email, password);
+    } else {
+        Swal.fire({
+        icon: 'warning',
+        title: 'Please Enter Your Credentials',
+        timer: 2500,
+      });
+    }
+});
+}
