@@ -1,5 +1,5 @@
 import { button } from "../components/button.js";
-import { logout, login } from "../utils/auth.js";
+import { logout, loginForm } from "../utils/auth.js";
 
 
 export const dashboard = () => {
