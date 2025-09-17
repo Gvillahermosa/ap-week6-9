@@ -16,19 +16,28 @@ export const logout = () => {
 
 }
 
-export const login = (email, password) => {
+export const loginForm = (email, password) => {
     // Add your authentication logic here
     console.log('Login attempt:', email, password);
 
-    // For now, just redirect to dashboard (replace with real authentication)
-    if (email && password) {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (!storedUser) {
+        alert("No user found. Please register first.");
+        return;
+    }
+    
+    if (storedUser.email === email && storedUser.password === password) {
+        alert(`Welcome back, ${storedUser.firstName}!`);
         window.location.href = 'dashboard.html';
     } else {
         alert('Invalid credentials');
     }
 }
 
-export const register = () =>{
+export const registerForm = (email, password, firstName, lastname) =>{
+    const userData = { email, password, firstName, lastname };
+    localStorage.setItem("user", JSON.stringify(userData));
+    console.log("User registered:", userData);
     window.location.href = 'register.html';
 }
 
