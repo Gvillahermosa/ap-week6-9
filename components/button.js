@@ -1,4 +1,4 @@
-import { logout, login } from '../utils/auth.js'
+import { logout, loginForm } from '../utils/auth.js'
 
 export const button = (buttonName, onClick) => {
     let button = document.createElement("button");
