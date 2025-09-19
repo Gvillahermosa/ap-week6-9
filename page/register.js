@@ -1,4 +1,4 @@
-
+import { loginForm, forgotPass, registerForm } from "../utils/auth.js";
 export const register = () => {
     document.body.innerHTML = `
         <div class="container">
@@ -26,12 +26,12 @@ export const register = () => {
                     <div class="name-row">
                         <div class="input-group half">
                             <div class="input-wrapper">
-                                <input type="text" placeholder="First Name" required>
+                                <input id="firstName" type="text" placeholder="First Name" required>
                             </div>
                         </div>
                         <div class="input-group half">
                             <div class="input-wrapper">
-                                <input type="text" placeholder="Last Name" required>
+                                <input id="lastName" type="text" placeholder="Last Name" required>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ export const register = () => {
                                 <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <polyline points="22,6 12,13 2,6" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <input type="email" placeholder="Email" required>
+                            <input id="email" type="email" placeholder="Email" required>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@ export const register = () => {
                                 <circle cx="12" cy="16" r="1" fill="#666"/>
                                 <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="#666" stroke-width="2"/>
                             </svg>
-                            <input type="password" placeholder="Password" required>
+                            <input id="password" type="password" placeholder="Password" required>
                             <button type="button" class="toggle-password">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="#666" stroke-width="2"/>
@@ -67,7 +67,7 @@ export const register = () => {
                         <span>Must be at least 8 characters.</span>
                     </div>
 
-                    <button type="submit" class="submit-btn">SIGN UP</button>
+                    <button id="register" type="submit" class="submit-btn">SIGN UP</button>
 
                     <div class="signin-link">
                         <span>Already have an account? </span>
@@ -77,5 +77,24 @@ export const register = () => {
             </div>
         </div>
     </div>
-    `
+    `;
+    document.querySelector('.signup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Get form values
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+  
+    // Check if fields are filled
+    if (email && password && firstName && lastName) {
+        registerForm(email, password, firstName, lastName);
+    } else {
+        Swal.fire({
+        icon: 'warning',
+        title: 'Please Enter Your Credentials',
+        timer: 2500,
+      });
+    }
+});
 }
