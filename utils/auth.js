@@ -22,23 +22,44 @@ export const loginForm = (email, password) => {
 
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (!storedUser) {
-        alert("No user found. Please register first.");
+        Swal.fire({
+             icon: 'warning',
+        title: 'No user found. Please register first.',
+        timer: 2500,
+        showConfirmButton: false
+        })
         return;
     }
-    
+
     if (storedUser.email === email && storedUser.password === password) {
-        alert(`Welcome back, ${storedUser.firstName}!`);
         window.location.href = 'dashboard.html';
     } else {
-        alert('Invalid credentials');
+        Swal.fire({
+             icon: 'warning',
+        title: 'Invalid credentials',
+        timer: 2500,
+        showConfirmButton: false
+        })
     }
+}
+
+export const first_name = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (!storedUser || !storedUser.firstName) return '';
+    return storedUser.firstName;
 }
 
 export const registerForm = (email, password, firstName, lastname) =>{
     const userData = { email, password, firstName, lastname };
     localStorage.setItem("user", JSON.stringify(userData));
-    console.log("User registered:", userData);
-    window.location.href = 'register.html';
+    Swal.fire({
+        icon: 'success',
+        title: 'Sign up Successfully',
+        timer: 2500,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = 'login.html';
+    });
 }
 
 export const forgotPass = () => {
